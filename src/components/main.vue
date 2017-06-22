@@ -2,9 +2,14 @@
   <div  class="main">
     <h1>Wellcome :D</h1>
     <md-button class="md-raised" v-on:click.native="logout">logout</md-button>
-    <div class="player">
-      
+    <div class="player">  
+      {{ player }}
     </div>
+    <md-input-container>
+      <label>Initial value</label>
+        <md-input v-model="getPlayer"></md-input>
+      </md-input-container>
+      <md-button class="md-raised" v-on:click.native="addPlayer">Add Player</md-button>
   </div>
   
 </template>
@@ -13,9 +18,19 @@ import firebase from 'firebase'
 import {mapState} from 'vuex'
 export default {
   name: 'main',
+  data () {
+    return {
+      getPlayer: ''
+    }
+  },
   methods: {
     logout: function () {
       firebase.auth().signOut()
+    },
+    addPlayer: function () {
+      this.$store.dispatch('creat-player', {player: this.getPlayer})
+    },
+    deltePlayer: function () {
     }
   },
   computed: {

@@ -4,7 +4,7 @@ const mutations = {
     state.user.name = user.displayName
     state.user.photoUrl = user.photoUrl
   },
-  CREATE_PLAYER (state, {player}) {
+  CREATE_PLAYER (state, player) {
     state.player.push(player)
   }
   // DELETE_PLAYER (state, player) {
