@@ -7,7 +7,7 @@ import firebase from 'firebase'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import 'firebaseui/dist/firebaseui.css'
-
+import store from './store'
 Vue.use(VueMaterial)
 
 const config = {
@@ -19,14 +19,15 @@ const config = {
   messagingSenderId: '808180080233'
 }
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   router,
   created () {
+    App.store = store
     firebase.initializeApp(config)
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        store.dispatch('creat-user', {user: user})
         this.$router.push('/main')
       } else {
         this.$router.push('/login')

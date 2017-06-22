@@ -1,5 +1,5 @@
 <template>
-  <div v-if="" class="login">
+  <div v-if="!user.authenticated" class="login">
     <div>
       <md-layout md-align="center">
         <md-layout  md-flex-small="100" md-flex="20">
@@ -17,6 +17,7 @@
 <script>
 import firebase from 'firebase'
 import firebaseui from 'firebaseui'
+import {mapState} from 'vuex'
 export default {
   name: 'login',
   mounted () {
@@ -31,6 +32,9 @@ export default {
     }
     const ui = new firebaseui.auth.AuthUI(firebase.auth())
     ui.start('#firebaseui-auth-container', uiConfig)
+  },
+  computed: {
+    ...mapState(['user'])
   }
 }
 </script>

@@ -1,35 +1,25 @@
 <template>
   <div  class="main">
     <h1>Wellcome :D</h1>
-      <md-button class="md-raised" v-on:click.native="logout">logout</md-button>
+    <md-button class="md-raised" v-on:click.native="logout">logout</md-button>
+    <div class="player">
+      
+    </div>
   </div>
+  
 </template>
 <script>
 import firebase from 'firebase'
+import {mapState} from 'vuex'
 export default {
   name: 'main',
-  data () {
-    return {
-      photo: '',
-      userId: '',
-      name: '',
-      email: '',
-      user: {}
-    }
-  },
-  mounted () {
-    this.user = firebase.auth().currentUser
-    if (this.user) {
-      this.name = this.user.displayName
-      this.email = this.user.email
-      this.photo = this.user.photoURL
-      this.userId = this.user.uid
-    }
-  },
   methods: {
     logout: function () {
       firebase.auth().signOut()
     }
+  },
+  computed: {
+    ...mapState(['player'])
   }
 }
 </script>
