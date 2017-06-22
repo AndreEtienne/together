@@ -11,12 +11,12 @@ import 'firebaseui/dist/firebaseui.css'
 Vue.use(VueMaterial)
 
 const config = {
-  apiKey: 'AIzaSyCdR7N1wNpCX9rm3ITRv5_NFYHIqZItY4Y',
-  authDomain: 'drinktogether-44dc2.firebaseapp.com',
-  databaseURL: 'https://drinktogether-44dc2.firebaseio.com',
-  projectId: 'drinktogether-44dc2',
-  storageBucket: 'drinktogether-44dc2.appspot.com',
-  messagingSenderId: '1093557434089'
+  apiKey: 'AIzaSyC7XS6RakH9jIn5tLpTOKsp1-gJ9oKabYU',
+  authDomain: 'together-4387d.firebaseapp.com',
+  databaseURL: 'https://together-4387d.firebaseio.com',
+  projectId: 'together-4387d',
+  storageBucket: 'together-4387d.appspot.com',
+  messagingSenderId: '808180080233'
 }
 Vue.config.productionTip = false
 
